@@ -9,12 +9,18 @@ import 'package:zesty/model/meal_send_order.dart';
 class SendOrderModel extends Model {
   Conf config = new Conf();
   bool _isLoading = false;
+  String _result = '';
 
   bool get isLoading {
     return _isLoading;
   }
 
+  String get result {
+    return _result;
+  }
+
   void sendOrder(SendOrder data) async {
+    _isLoading = true;
     String api = "orders";
     String url = config.apiPath + api;
     Map<String, String> headers = {"Content-type": "application/json"};
@@ -25,9 +31,12 @@ class SendOrderModel extends Model {
       print(response.statusCode);
       if (response.statusCode == 200 || response.statusCode == 201) {
         print("success");
+        _result = 'success';
+        _isLoading = false;
         notifyListeners();
       }
     } catch (error) {
+      _isLoading = false;
       print(error);
     }
   }

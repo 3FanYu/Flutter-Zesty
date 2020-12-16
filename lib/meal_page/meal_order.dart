@@ -7,6 +7,7 @@ import 'package:zesty/conf/config.inc.dart';
 import 'package:zesty/model/meal_detail.dart';
 import 'package:zesty/model/meal_send_order.dart';
 import 'package:zesty/scoped_model/meal_send_order_model.dart';
+import 'package:zesty/tab_home/page_home.dart';
 import 'package:zesty/widgets/star_rating.dart';
 
 import '../service_locator.dart';
@@ -22,10 +23,12 @@ class _mealOrderState extends State<mealOrder> {
   Conf config = new Conf();
   SendOrderModel sendOrderModel;
   bool isLoading = false;
+  int totalPrice = 0;
   TextEditingController _dateEditingController = TextEditingController();
   TextEditingController _timeEditingController = TextEditingController();
   TextEditingController _addressEditingController = TextEditingController();
   TextEditingController _setsEditingController = TextEditingController();
+  TextEditingController _totalEditingController = TextEditingController();
   TextEditingController _psEditingController = TextEditingController();
 
   @override
@@ -250,6 +253,13 @@ class _mealOrderState extends State<mealOrder> {
                         Container(
                           width: 200,
                           child: TextField(
+                            keyboardType: TextInputType.number,
+                            onChanged: (value) {
+                              setState(() {
+                                totalPrice = widget.mealDetail[0].price *
+                                    int.parse(value);
+                              });
+                            },
                             decoration: InputDecoration(),
                             controller: _setsEditingController,
                             style: TextStyle(
@@ -264,14 +274,59 @@ class _mealOrderState extends State<mealOrder> {
                   ),
                   Expanded(
                     flex: 10,
-                    child: Container(
-                      decoration: BoxDecoration(color: Colors.purple),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 10),
+                          child: Text(
+                            '總價',
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Hexcolor('#575757'),
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Container(
+                          margin: EdgeInsets.only(right: 10),
+                          child: Text(
+                            "\$" + totalPrice.toString(),
+                            style: TextStyle(fontSize: 20),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
                     flex: 20,
-                    child: Container(
-                      decoration: BoxDecoration(color: Colors.teal),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          margin: EdgeInsets.only(left: 10, top: 5),
+                          child: Text(
+                            '需要的環境設備',
+                            style: TextStyle(
+                              fontSize: 25,
+                              color: Hexcolor('#575757'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(left: 200, top: 15),
+                          child: Row(
+                            children: [
+                              Text(
+                                '平底鍋、電鍋、砧板',
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(
@@ -326,6 +381,7 @@ class _mealOrderState extends State<mealOrder> {
                                       ? 0
                                       : int.parse(_setsEditingController.text),
                                   postScript: _psEditingController.text,
+                                  userDetailId: 3,
                                 );
                                 model.sendOrder(data);
                                 setState(() {
@@ -345,7 +401,36 @@ class _mealOrderState extends State<mealOrder> {
                         child: CircularProgressIndicator(),
                       ),
                     )
-                  : Container()
+                  : Container(),
+              model.result == "success"
+                  ? AlertDialog(
+                      title: Column(
+                        children: [
+                          Icon(
+                            Icons.check,
+                            size: 40,
+                            color: Hexcolor('#57AE80'),
+                          ),
+                          Text(
+                            model.result,
+                            style: Theme.of(context).textTheme.title,
+                          ),
+                        ],
+                      ),
+                      actions: <Widget>[
+                        FlatButton(
+                          onPressed: () {
+                            Navigator.popUntil(
+                          context, ModalRoute.withName(HomePage().routeName));
+                          },
+                          child: Text(
+                            "點我回選單",
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                      ],
+                    )
+                  : AlertDialog(),
             ],
           ),
         );

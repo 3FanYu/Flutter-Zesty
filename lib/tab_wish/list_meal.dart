@@ -42,7 +42,12 @@ class MealList extends StatelessWidget implements PreferredSize {
           children: [
             new Container(
                 padding: const EdgeInsets.all(8.0),
-                child: Image.network(config.imagePath + path)),
+                child: Image.network(
+                  path,
+                  height: 175,
+                  width: 400,
+                  fit: BoxFit.cover,
+                )),
             new Container(
               padding: const EdgeInsets.all(10.0),
               child: Column(
@@ -54,19 +59,22 @@ class MealList extends StatelessWidget implements PreferredSize {
                       Text(title, style: Theme.of(context).textTheme.title),
                       Spacer(flex: 10),
                       Text(
-                        "$stars",
+                        chefName,
                       ),
-                      Icon(
-                        Icons.star,
-                        color: Hexcolor('#FFD215'),
-                      ),
-                      Text("(12)"),
                       Spacer(flex: 1),
                     ],
                   ),
-                  Text(chefName,
-                      style: TextStyle(color: Colors.black.withOpacity(0.5))),
-                  Text(categoryName),
+                  // Text(chefName,
+                  //     style: TextStyle(color: Colors.black.withOpacity(0.5))),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                        color: Hexcolor('#5E7C87'),
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Text(
+                      '  ' + categoryName + '  ',
+                      style: TextStyle(),
+                    ),
+                  )
                 ],
               ),
             ),

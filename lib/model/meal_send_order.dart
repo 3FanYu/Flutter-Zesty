@@ -4,6 +4,7 @@ class SendOrder {
   final String address;
   final int count;
   final String postScript;
+  final int userDetailId;
 
   SendOrder({
     this.id,
@@ -11,6 +12,7 @@ class SendOrder {
     this.address,
     this.count,
     this.postScript,
+    this.userDetailId,
   });
   Map toJson() => {
         'datetime': dateTime,
@@ -18,6 +20,7 @@ class SendOrder {
         'count': count,
         'postscript': postScript,
         'menu_id': id,
+        'user_detail_id': userDetailId,
       };
 }
 

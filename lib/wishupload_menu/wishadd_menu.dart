@@ -25,8 +25,8 @@ class _AddMenuState extends State<AddMenu> {
   TextEditingController _nameEditingController = TextEditingController();
   TextEditingController _cateEditingController = TextEditingController();
   TextEditingController _priceEditingController = TextEditingController();
-  TextEditingController _maximumEditingController = TextEditingController();
-  TextEditingController _minimumEditingController = TextEditingController();
+  // TextEditingController _maximumEditingController = TextEditingController();
+  // TextEditingController _minimumEditingController = TextEditingController();
   TextEditingController _vegeEditingController = TextEditingController();
   TextEditingController _allergicEditingController = TextEditingController();
   TextEditingController _deviceEditingController = TextEditingController();
@@ -58,8 +58,8 @@ class _AddMenuState extends State<AddMenu> {
                     "name": _nameEditingController.text,
                     "cate": _cateEditingController.text,
                     "price": _priceEditingController.text,
-                    "maximum": _maximumEditingController.text,
-                    "minimum": _minimumEditingController.text,
+                    // "maximum": _maximumEditingController.text,
+                    // "minimum": _minimumEditingController.text,
                     "is_vege": is_vege,
                     "allergic": _allergicEditingController.text,
                     "devices": _deviceEditingController.text,
@@ -122,13 +122,13 @@ class _AddMenuState extends State<AddMenu> {
               children: [
                 _makeTextField("商品名稱", _nameEditingController, "此欄位為必填"),
                 _makeTextField("類別", _cateEditingController, "此欄位為必填"),
-                _makeNumField("價格", _priceEditingController, "此欄位為必填"),
-                _makeNumField("最大份數", _maximumEditingController, "此欄位為必填"),
-                _makeNumField("最小份數", _minimumEditingController, "此欄位為必填"),
-                _makeRadioButtons("是否提供素食", "是", "否"),
-                _makeTextField("可能過敏食材", _allergicEditingController),
+                _makeNumField("期望價格", _priceEditingController, "此欄位為必填"),
+                // _makeNumField("最大份數", _maximumEditingController, "此欄位為必填"),
+                // _makeNumField("最小份數", _minimumEditingController, "此欄位為必填"),
+                _makeRadioButtons("是否為素食", "是", "否"),
+                _makeTextField("過敏食材", _allergicEditingController),
                 _makeTextField(
-                  "廚房設備需求",
+                  "廚房設備",
                   _deviceEditingController,
                 ),
                 SizedBox(height: 20),

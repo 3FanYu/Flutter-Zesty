@@ -6,8 +6,8 @@ import 'package:http/http.dart';
 class AddMenuData {
   final String name;
   final List<String> descriptions;
-  final int maximumPeople;
-  final int minimumPeople;
+  // final int maximumPeople;
+  // final int minimumPeople;
   final bool isVege;
   final int price;
   final int categoryId;
@@ -18,8 +18,8 @@ class AddMenuData {
   AddMenuData({
     this.name,
     this.descriptions,
-    this.maximumPeople,
-    this.minimumPeople,
+    // this.maximumPeople,
+    // this.minimumPeople,
     this.isVege,
     this.price,
     this.categoryId,
@@ -31,8 +31,8 @@ class AddMenuData {
   Map toJson() => {
         'name': name,
         'descriptions': descriptions,
-        'maximum_people': maximumPeople,
-        'minimum_people': minimumPeople,
+        // 'maximum_people': maximumPeople,
+        // 'minimum_people': minimumPeople,
         'is_vagetarian': isVege,
         'price': price,
         'category_id': categoryId,

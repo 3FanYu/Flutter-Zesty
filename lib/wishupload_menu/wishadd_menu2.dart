@@ -12,7 +12,6 @@ import 'package:zesty/scoped_model/wishadd_menu_model.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:zesty/tab_wish/page_wish.dart';
 
-
 import '../service_locator.dart';
 
 class AddMenu2 extends StatefulWidget {
@@ -31,6 +30,8 @@ class _AddMenu2State extends State<AddMenu2> {
   Map<String, dynamic> get addMenuInfo => widget.addMenuInfo;
   List<TextEditingController> controllers;
   AddMenuModel addMenuModel;
+  bool isLoading = false;
+  String result = "";
 
   @override
   void initState() {
@@ -72,9 +73,8 @@ class _AddMenu2State extends State<AddMenu2> {
                 Padding(
                   padding: EdgeInsets.only(right: 20.0),
                   child: GestureDetector(
-                    onTap: () async {
-                      AddMenuData data = await _collectData();
-                      model.addMenu(data);
+                    onTap: () {
+                      next();
                     },
                     child: Icon(
                       Icons.navigate_next,
@@ -88,6 +88,20 @@ class _AddMenu2State extends State<AddMenu2> {
           );
         },
       ),
+    );
+  }
+
+  Future<void> next() {
+    setState(() {
+      isLoading = true;
+    });
+    Future.delayed(
+      Duration(seconds: 2),
+      () => {
+        setState(() {
+          result = "success";
+        })
+      },
     );
   }
 
@@ -131,7 +145,7 @@ class _AddMenu2State extends State<AddMenu2> {
             )
           ],
         ),
-        model.isLoading
+        isLoading
             ? Container(
                 color: Colors.black.withOpacity(0.5),
                 child: Center(
@@ -139,16 +153,26 @@ class _AddMenu2State extends State<AddMenu2> {
                 ),
               )
             : Container(),
-        model.result == "success"
+        result == "success"
             ? AlertDialog(
-                title: Text(
-                  model.result,
-                  style: Theme.of(context).textTheme.title,
+                title: Column(
+                  children: [
+                    Icon(
+                      Icons.check,
+                      size: 40,
+                      color: Hexcolor('#57AE80'),
+                    ),
+                    Text(
+                      "success",
+                      style: Theme.of(context).textTheme.title,
+                    ),
+                  ],
                 ),
                 actions: <Widget>[
                   FlatButton(
                     onPressed: () {
-                      Navigator.popUntil(context, ModalRoute.withName(WishPage().routeName));
+                      Navigator.popUntil(
+                          context, ModalRoute.withName(WishPage().routeName));
                       // Navigator.pop(context);
                       // Navigator.of(context).pushNamed('home');
                     },
@@ -280,8 +304,8 @@ class _AddMenu2State extends State<AddMenu2> {
     String name = addMenuInfo["name"];
     int cate = 1;
     int price = int.parse(addMenuInfo["price"]);
-    int maximum = int.parse(addMenuInfo["maximum"]);
-    int minimum = int.parse(addMenuInfo["minimum"]);
+    // int maximum = int.parse(addMenuInfo["maximum"]);
+    // int minimum = int.parse(addMenuInfo["minimum"]);
     bool isVege = addMenuInfo["is_vege"];
     String allergic = addMenuInfo["allergic"];
     String devices = addMenuInfo["devices"];
@@ -292,8 +316,8 @@ class _AddMenu2State extends State<AddMenu2> {
       name: name,
       categoryId: cate,
       price: price,
-      maximumPeople: maximum,
-      minimumPeople: minimum,
+      // maximumPeople: maximum,
+      // minimumPeople: minimum,
       isVege: isVege,
       allergicFood: allergic,
       devices: devices,

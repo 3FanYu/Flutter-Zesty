@@ -54,7 +54,7 @@ class _HomeBodyState extends State<HomeBody>
       shrinkWrap: true,
       padding: const EdgeInsets.all(20.0),
       itemBuilder: (BuildContext context, int index) {
-        return MealList(
+        return WishList(
           id:model.meals[index].id,
           title: model.meals[index].name,
           chefName: model.meals[index].chefName,

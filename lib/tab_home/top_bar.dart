@@ -23,7 +23,7 @@ class TopBar extends StatelessWidget implements PreferredSize {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
+            spreadRadius: 1,
             blurRadius: 5,
             offset: Offset(0, 2), // changes position of shadow
           ),

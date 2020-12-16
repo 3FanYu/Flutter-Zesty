@@ -3,7 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:zesty/conf/config.inc.dart';
 import 'package:zesty/meal_page/meal_detail.dart';
 
-class MealList extends StatelessWidget implements PreferredSize {
+class WishList extends StatelessWidget implements PreferredSize {
   final double _preferedHeight = 100.0;
   int id;
   String title;
@@ -15,7 +15,7 @@ class MealList extends StatelessWidget implements PreferredSize {
   String path;
   int stars;
   Conf config = new Conf();
-  MealList({
+  WishList({
     this.id,
     this.title,
     this.backgroundColor,

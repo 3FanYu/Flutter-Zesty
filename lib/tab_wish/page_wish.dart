@@ -27,10 +27,6 @@ class _NavBarState extends State<WishPage> {
     return Scaffold(
       backgroundColor: Hexcolor('#FFF0F5'),
       appBar: TopBar(
-        title: "許願池",
-        backgroundColor: Hexcolor('#FFB6C1'),
-        fontSize: 20.0,
-        textColor: Hexcolor('#000000'),
       ),
       body: WishHomeBody(),
       floatingActionButton: FloatingActionButton(
