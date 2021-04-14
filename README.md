@@ -1,7 +1,5 @@
 # zesty
 
-A new Flutter project.
-
 ## Intro
 
 一、前言
@@ -18,3 +16,17 @@ Zesty私廚平台的許願池，打破以往的用餐經驗，不再是顧客從
 
 3.	帶動私廚產業數位轉型：
 Zesty私廚平台可以提供各式相關產業數位轉型，可以搭配食材廠商，通過APP傳送食材生產履歷，讓顧客知道今天吃下的食材來源。
+
+![1](https://user-images.githubusercontent.com/37991957/114733522-ff023000-9d75-11eb-9887-eadd3e2e23de.jpg)
+
+
+<img width="526" alt="截圖 2021-04-14 下午11 06 57" src="https://user-images.githubusercontent.com/37991957/114733981-64eeb780-9d76-11eb-9bb6-8758ed9fa224.png">
+<img width="482" alt="截圖 2021-04-14 下午11 08 01" src="https://user-images.githubusercontent.com/37991957/114734020-6c15c580-9d76-11eb-8b08-b75a46fcf6e4.png">
+<img width="482" alt="截圖 2021-04-14 下午11 07 44" src="https://user-images.githubusercontent.com/37991957/114734028-6d46f280-9d76-11eb-8254-e4c2cbfe0f87.png">
+<img width="482" alt="截圖 2021-04-14 下午11 07 36" src="https://user-images.githubusercontent.com/37991957/114734032-6ddf8900-9d76-11eb-88ca-3ddf00f9f2c6.png">
+<img width="482" alt="截圖 2021-04-14 下午11 07 30" src="https://user-images.githubusercontent.com/37991957/114734036-6fa94c80-9d76-11eb-8dc3-4d6697ddcc95.png">
+<img width="482" alt="截圖 2021-04-14 下午11 07 27" src="https://user-images.githubusercontent.com/37991957/114734041-7041e300-9d76-11eb-9e7c-313ec683a68d.png">
+<img width="482" alt="截圖 2021-04-14 下午11 07 19" src="https://user-images.githubusercontent.com/37991957/114734046-70da7980-9d76-11eb-9e7d-9ddf02d15df2.png">
+<img width="482" alt="截圖 2021-04-14 下午11 07 13" src="https://user-images.githubusercontent.com/37991957/114734055-720ba680-9d76-11eb-820d-4c38bc9c7121.png">
+<img width="482" alt="截圖 2021-04-14 下午11 08 18" src="https://user-images.githubusercontent.com/37991957/114734003-6a4c0200-9d76-11eb-8446-75f38104ed19.png">
+<img width="482" alt="截圖 2021-04-14 下午11 08 10" src="https://user-images.githubusercontent.com/37991957/114734013-6b7d2f00-9d76-11eb-869f-058ab90cf36d.png">
